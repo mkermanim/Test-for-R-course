@@ -1,0 +1,17 @@
+---
+title: "Practicing R"
+author: "Hossein"
+date: "November 29, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+I am actually practicing what I ma learning at R programming here. It is **my first** Rmarkdown file. In the remaining, I'll try to practice something. 
+
+## Installing packages
+First, I am installing __packhages__ to use them later. 
+``` {r install packages, echo=FALSE}
