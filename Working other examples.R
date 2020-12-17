@@ -35,6 +35,11 @@ yugoslavia %>% arrange(desc(year), pop)
 
 
 yugoslavia %>%
-  filter(year == 1982) %>%
-  summarize()
+  group_by(Population=pop) %>% 
+  summarize(GDP=sum(gdpPercap),
+            AVGPOP=mean(pop),
+            Year=year) %>% 
+  head(5) %>%
+  pander(style="grid", caption="This is a test", color="green")
+  
             
