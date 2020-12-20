@@ -37,4 +37,8 @@ yugoslavia %>% arrange(desc(year), pop)
 yugoslavia %>%
   filter(year == 1982) %>%
   summarize()
+
+install.packages("usethis")
+library(usethis)
+use_git_config(user.name = "Hossein Kermani", user.email = "spm.kermani@yahoo.com")
             
