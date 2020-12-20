@@ -38,7 +38,11 @@ yugoslavia %>%
   filter(year == 1982) %>%
   summarize()
 
-install.packages("usethis")
-library(usethis)
-use_git_config(user.name = "Hossein Kermani", user.email = "spm.kermani@yahoo.com")
+  group_by(Population=pop) %>% 
+  summarize(GDP=sum(gdpPercap),
+            AVGPOP=mean(pop),
+            Year=year) %>% 
+  head(5) %>%
+  pander(style="grid", caption="This is a test", color="green")
+
             
