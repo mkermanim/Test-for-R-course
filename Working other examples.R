@@ -45,4 +45,8 @@ yugoslavia %>%
   head(5) %>%
   pander(style="grid", caption="This is a test", color="green")
 
-            
+  remotes::install_github("user/repository")
+install.packages("readr")
+  library(readr)  
+billboard_2000_raw <- read_csv(file = "https://clanfear.github.io/CSSS508/Lectures/Week5/data/billboard.csv")
+str(billboard_2000_raw)
