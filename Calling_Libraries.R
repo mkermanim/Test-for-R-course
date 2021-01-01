@@ -1,0 +1,9 @@
+#Libraries 
+library(tibble)
+library(dplyr)
+library(gapminder)
+library(tidyverse)
+library(pander)
+library(xlsx)
+library(readr)  
+library(tidyr)
