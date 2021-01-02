@@ -15,11 +15,11 @@ billboard_2000 <- billboard_2000_raw %>%
                names_to ="week",
                values_to = "rank",
                values_drop_na = TRUE,
-               )
+               names_prefix = "wk")
 
-
-billboard_2000 <- billboard_2000 %>% 
-  mutate(week=parse_number(week))
+#another way
+#billboard_2000 <- billboard_2000 %>% 
+ # mutate(week=parse_number(week))
 
 billboard_2000 <- billboard_2000 %>% 
   separate(time, into = c("min", "sec"),
@@ -29,7 +29,13 @@ billboard_2000 <- billboard_2000 %>%
 
   summary(billboard_2000$lenght)
   
-  
-  
+  billboard_2000 <- billboard_2000 %>%
+    group_by(artist, track)
+  billboard_2000 <- billboard_2000 %>%
+    group_by(artist, track) %>%
+    mutate(`Weeks at #1` = sum(rank == 1),
+           `Peak Rank` = ifelse(any(rank == 1),
+                                "Hit #1",
+                                "Didn't #1"))  
 
   
