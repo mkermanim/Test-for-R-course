@@ -30,12 +30,30 @@ billboard_2000 <- billboard_2000 %>%
   summary(billboard_2000$lenght)
   
   billboard_2000 <- billboard_2000 %>%
-    group_by(artist, track)
-  billboard_2000 <- billboard_2000 %>%
     group_by(artist, track) %>%
     mutate(`Weeks at #1` = sum(rank == 1),
            `Peak Rank` = ifelse(any(rank == 1),
                                 "Hit #1",
                                 "Didn't #1"))  
 
+  billboard_trajectories <- 
+    ggplot(data = billboard_2000,
+           aes(x = week, y = rank, group = track,
+               color = `Peak Rank`)
+    ) +
+    geom_line(aes(size = `Peak Rank`), alpha = 0.4) +
+    # rescale time: early weeks more important
+    scale_x_log10(breaks = seq(0, 70, 10)) + 
+    scale_y_reverse() + # want rank 1 on top, not bottom
+    theme_classic() +
+    xlab("Week") + ylab("Rank") +
+    scale_color_manual(values = c("black", "red")) +
+    scale_size_manual(values = c(0.25, 1)) +
+    theme(legend.position = c(0.90, 0.25),
+          legend.background = element_rect(fill="transparent"))
   
+  billboard_trajectories
+  
+######
+  spd_raw <- read_csv("https://clanfear.github.io/CSSS508/Seattle_Police_Department_911_Incident_Response.csv")
+glimpse(spd_raw)  
