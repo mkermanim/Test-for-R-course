@@ -1,0 +1,26 @@
+---
+title: "My first Markdown Doc"
+author: "Hossein"
+date: "`r format(Sys.Date(), format='%B %d, %Y')`"
+bibliography: testcite.bib
+output: 
+  prettydoc::html_pretty:
+    theme: hpstr
+    highlight: github
+---
+
+
+# Introduction
+
+It is my _first_ Markdown practice. I am going to practice some of __Markdown__ functions in this file. 
+Firdt, I am going to read a file that contains all of coded tweets of my PhD project.
+``` {r reading file, eval=  FALSE}
+coded_tweets <- readxl::read_xlsx("C:/Users/Hossein/Dropbox/Academic/PHD/Dissertation/Data and Analyses/Coding/Coders/Final Round!/AllFinalTwettsCoded/final_codes.xlsx")
+```
+After reading data, I am going to have a `glimpse()` on my file. Thus, here is a summary of my file.
+```{r looking at data, eval=FALSE}
+dplyr:: glimpse(coded_tweets)
+```
+Now lets see wht happens!
+@Hino2019  @tufekci2014 
+
